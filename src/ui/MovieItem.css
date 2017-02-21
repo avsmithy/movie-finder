@@ -1,0 +1,29 @@
+.MovieItem {
+	max-width: 64em;
+	margin: 15px;
+
+	display: flex;
+}
+
+.MovieItem-left {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.MovieItem-right {
+	padding: 15px 25px;
+}
+
+.MovieItem-image {
+	width: 250px;
+}
+
+.MovieItem-title {
+	font-size: 2em;
+	margin-bottom: 0.2em;
+}
+
+.MovieItem-date {
+	font-style: italic;
+	margin-bottom: 0.5em;
+}

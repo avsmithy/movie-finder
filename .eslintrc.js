@@ -10,6 +10,11 @@ module.exports = {
         "react/jsx-filename-extension": 0,
         "space-before-function-paren": [
             "error", "never"
-        ]
+        ],
+        "no-tabs": 0,
+        "indent": 0,
+        "no-underscore-dangle": 0,
+        "react/jsx-indent": 0,
+		"react/jsx-indent-props": 0
     }
 };

@@ -1,0 +1,11 @@
+.SearchBox {
+	max-width: 64em;
+	margin: 15px;
+}
+
+.SearchBox-input {
+	font-size: 2em;
+	padding: 5px 10px;
+	border: 1px solid grey;
+	border-radius: 4px;
+}
