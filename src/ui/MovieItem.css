@@ -1,6 +1,7 @@
 .MovieItem {
 	display: flex;
 	overflow: hidden;
+	position: relative;
 
 	max-width: 64em;
 	height: 375px;
@@ -28,9 +29,21 @@
 	font-size: 2em;
 	font-weight: bold;
 	margin-bottom: 0.2em;
+	padding-right: 55px;
 }
 
 .MovieItem-date {
 	font-style: italic;
 	margin-bottom: 0.5em;
+}
+
+.MovieItem-source {
+	position: absolute;
+	top: 18px;
+	right: 18px;
+}
+
+.MovieItem-source img {
+	max-width: 50px;
+	max-height: 50px;
 }

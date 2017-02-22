@@ -9,12 +9,11 @@ function getQueryParams(apiKey, searchTerm) {
 	return `?api_key=${apiKey}&query=${searchTerm}`;
 }
 
-function parseXHRResponse(json) {
-	const response = JSON.parse(json);
+function parseMovies(response) {
 	const searchResults = response.results.map((result) => {
-		const releaseDate = new Date(result.release_date);
-		const pictureURI = imagePrefix + result.poster_path;
-		return new SearchResult(result.title, result.overview, releaseDate, pictureURI);
+		const releaseDate = new Date(result['release_date']);
+		const pictureURI = imagePrefix + result['poster_path'];
+		return new SearchResult(result['title'], result['overview'], releaseDate, pictureURI, 'TheMovieDB');
 	});
 	return new SearchResultList(searchResults);
 }
@@ -35,10 +34,11 @@ export default class MovieDBAPI extends API {
 
 			xhr.onreadystatechange = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
-						resolve(parseXHRResponse(xhr.response));
+					const response = JSON.parse(xhr.response || "{}");
+					if (xhr.status === 200 && response.results) {
+						resolve(parseMovies(response));
 					} else {
-						reject('something'); // TODO
+						reject(response['status_message']);
 					}
 				}
 			};

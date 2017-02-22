@@ -7,11 +7,12 @@ function formatDate(date) {
 
 export default class SearchResult {
 
-	constructor(title, description, releaseDate, pictureURI) {
+	constructor(title, description, releaseDate, pictureURI, source) {
 		this._title = title;
 		this._description = description;
 		this._releaseDate = formatDate(releaseDate);
 		this._pictureURI = pictureURI;
+		this._source = source;
 	}
 
 	get title() {
@@ -28,5 +29,9 @@ export default class SearchResult {
 
 	get pictureURI() {
 		return this._pictureURI;
+	}
+
+	get source() {
+		return this._source;
 	}
 }

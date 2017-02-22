@@ -12,6 +12,9 @@ export default function MovieItem({searchResult}) {
 				<div className="MovieItem-title">{searchResult.title}</div>
 				<div className="MovieItem-date">Released: {searchResult.releaseDate.toString()}</div>
 				<div className="MovieItem-description">{searchResult.description}</div>
+				<div className="MovieItem-source">
+					<img src={`/img/sources/${searchResult.source.toLowerCase()}.png`} />
+				</div>
 			</div>
 		</div>
 	);
