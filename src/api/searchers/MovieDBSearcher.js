@@ -27,6 +27,10 @@ export default class MovieDBSearcher extends Searcher {
 
 	search(searchTerm) {
 		return new Promise((resolve, reject) => {
+			if (!searchTerm) {
+				return resolve(new SearchResultList());
+			}
+
 			const queryParams = getQueryParams(this._apiKey, searchTerm);
 			const xhr = new XMLHttpRequest();
 
@@ -43,7 +47,10 @@ export default class MovieDBSearcher extends Searcher {
 				}
 			};
 
-			xhr.send();
+			// For the sake of demonstation...
+			setTimeout(() => {
+				xhr.send();
+			}, 1000);
 		});
 	}
 

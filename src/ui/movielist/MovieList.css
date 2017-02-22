@@ -1,3 +1,7 @@
 .MovieList {
+	position: relative;
+}
+
+.MovieList.is-loading {
 
 }

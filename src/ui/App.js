@@ -10,6 +10,7 @@ export default class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
+			isLoading:        false,
 			searchResultList: new SearchResultList(),
 		};
 
@@ -17,16 +18,22 @@ export default class App extends React.Component {
 	}
 
 	searchAndUpdate(searchTerm) {
+		this.setState({
+			isLoading: true
+		});
 		this.props.searcher.search(searchTerm).then((searchResultList) => {
-			this.setState({searchResultList});
+			this.setState({
+				isLoading: false,
+				searchResultList
+			});
 		});
 	}
 
 	render() {
 		return (
 			<Container>
-				<SearchBox onChange={this.searchAndUpdate} />
-				<MovieList searchResultList={this.state.searchResultList} />
+				<SearchBox onChange={this.searchAndUpdate}/>
+				<MovieList isLoading={this.state.isLoading} searchResultList={this.state.searchResultList}/>
 			</Container>
 		);
 	}
