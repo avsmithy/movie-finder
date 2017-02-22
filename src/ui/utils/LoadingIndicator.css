@@ -1,16 +1,12 @@
 .LoadingIndicator {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	margin-left: -20px;
+	float: right;
+	margin-top: 6px;
 }
 
 .LoadingIndicator .spinner {
 	width: 40px;
 	height: 40px;
-
 	position: relative;
-	margin: 100px auto;
 }
 
 .LoadingIndicator .double-bounce1,

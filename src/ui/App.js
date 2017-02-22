@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingIndicator from './utils/LoadingIndicator';
 import SearchResultList from '../api/results/SearchResultList';
 import Searcher from '../api/searchers/Searcher';
 import Container from './container/Container';
@@ -32,8 +33,9 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<Container>
+				{this.state.isLoading && <LoadingIndicator />}
 				<SearchBox onChange={this.searchAndUpdate}/>
-				<MovieList isLoading={this.state.isLoading} searchResultList={this.state.searchResultList}/>
+				<MovieList searchResultList={this.state.searchResultList}/>
 			</Container>
 		);
 	}
