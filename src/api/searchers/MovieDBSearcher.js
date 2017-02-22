@@ -38,6 +38,7 @@ export default class MovieDBSearcher extends Searcher {
 				return resolve(new SearchResultList());
 			}
 
+			// TODO extract into a fetch module/use a library
 			const queryParams = getQueryParams(this._apiKey, searchTerm);
 			const xhr = new XMLHttpRequest();
 

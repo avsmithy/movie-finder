@@ -39,6 +39,28 @@ it('if isLoading is true, show LoadingIndicator', () => {
 	expect(wrapper.contains(<LoadingIndicator />)).toEqual(true);
 });
 
+it('if the are no results, show no results text', () => {
+	const searchResultList = new SearchResultList();
+	const wrapper = shallow(
+		<MovieList
+			isLoading={false}
+			searchResultList={searchResultList}
+		/>
+	);
+	expect(wrapper.find('.MovieList-noResultsText').length).toEqual(1);
+});
+
+it('if the are no results, but isLoading is true, do not show no results text', () => {
+	const searchResultList = new SearchResultList();
+	const wrapper = shallow(
+		<MovieList
+			isLoading={true}
+			searchResultList={searchResultList}
+		/>
+	);
+	expect(wrapper.find('.MovieList-noResultsText').length).toEqual(0);
+});
+
 it('renders MovieItem children when there are search results', () => {
 	const result1 = {test: 'a'};
 	const result2 = {test: 'b'};

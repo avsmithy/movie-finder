@@ -2,6 +2,9 @@
 	position: relative;
 }
 
-.MovieList.is-loading {
-
+.MovieList-noResultsText {
+	text-align: center;
+	font-style: italic;
+	font-size: 1.5em;
+	margin-top: 50px;
 }
