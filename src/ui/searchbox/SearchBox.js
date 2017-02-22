@@ -1,5 +1,5 @@
 import React from 'react';
-import debounce from 'lodash.debounce';
+import debounce from 'debounce';
 import './SearchBox.css'
 
 export default class SearchBox extends React.Component {
@@ -11,7 +11,7 @@ export default class SearchBox extends React.Component {
 		};
 
 		this.handleChange = this.handleChange.bind(this);
-		this.callback = debounce(this.props.onChange, 500);
+		this.debouncedCallback = debounce(this.callback, 500);
 	}
 
 	handleChange(event) {
@@ -19,7 +19,11 @@ export default class SearchBox extends React.Component {
 		this.setState({
 			value,
 		});
-		this.callback(value);
+		this.debouncedCallback(value);
+	}
+
+	callback(value) {
+		this.props.onChange(value);
 	}
 
 	render() {

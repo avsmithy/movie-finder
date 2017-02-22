@@ -13,7 +13,14 @@ function parseMovies(response) {
 	const searchResults = response.results.map((result) => {
 		const releaseDate = new Date(result['release_date']);
 		const pictureURI = imagePrefix + result['poster_path'];
-		return new SearchResult(result['title'], result['overview'], releaseDate, pictureURI, 'TheMovieDB');
+		return new SearchResult(
+			result['title'],
+			result['overview'],
+			releaseDate,
+			pictureURI,
+			'TheMovieDB',
+			'/img/sources/themoviedb.png'
+		);
 	});
 	return new SearchResultList(searchResults);
 }
@@ -47,7 +54,7 @@ export default class MovieDBSearcher extends Searcher {
 				}
 			};
 
-			// For the sake of demonstation...
+			// For the sake of demonstration...
 			setTimeout(() => {
 				xhr.send();
 			}, 1000);

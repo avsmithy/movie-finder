@@ -10,5 +10,5 @@ export default function Container(props) {
 }
 
 Container.propTypes = {
-	children: React.PropTypes.node.isRequired,
+	children: React.PropTypes.node,
 };

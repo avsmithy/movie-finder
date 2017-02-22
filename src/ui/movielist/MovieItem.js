@@ -10,10 +10,10 @@ export default function MovieItem({searchResult}) {
 			</div>
 			<div className="MovieItem-right">
 				<div className="MovieItem-title">{searchResult.title}</div>
-				<div className="MovieItem-date">Released: {searchResult.releaseDate.toString()}</div>
+				<div className="MovieItem-date">Released: {searchResult.releaseDate}</div>
 				<div className="MovieItem-description">{searchResult.description}</div>
 				<div className="MovieItem-source">
-					<img alt={searchResult.source} src={`/img/sources/${searchResult.source.toLowerCase()}.png`}/>
+					<img alt={searchResult.source} src={searchResult.sourceImageURI}/>
 				</div>
 			</div>
 		</div>
