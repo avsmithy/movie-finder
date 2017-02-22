@@ -1,9 +1,16 @@
+import moment from 'moment';
+
+function formatDate(date) {
+	const momentDate = moment(date);
+	return momentDate.isValid() ? momentDate.format('MMMM Do YYYY') : 'N/A';
+}
+
 export default class SearchResult {
 
 	constructor(title, description, releaseDate, pictureURI) {
 		this._title = title;
 		this._description = description;
-		this._releaseDate = releaseDate;
+		this._releaseDate = formatDate(releaseDate);
 		this._pictureURI = pictureURI;
 	}
 
