@@ -1,6 +1,6 @@
-import API from './API';
-import SearchResult from '../SearchResult';
-import SearchResultList from '../SearchResultList';
+import Searcher from './Searcher';
+import SearchResult from '../results/SearchResult';
+import SearchResultList from '../results/SearchResultList';
 
 const apiURI = 'https://api.themoviedb.org/3/search/movie';
 const imagePrefix = 'https://image.tmdb.org/t/p/w300';
@@ -18,7 +18,7 @@ function parseMovies(response) {
 	return new SearchResultList(searchResults);
 }
 
-export default class MovieDBAPI extends API {
+export default class MovieDBSearcher extends Searcher {
 
 	constructor(apiKey) {
 		super();
