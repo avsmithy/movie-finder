@@ -1,6 +1,6 @@
 import 'jest';
 import React from 'react';
-import SearchResultList from '../../api/results/SearchResultList';
+import SearchResultList from '../../search/results/SearchResultList';
 import LoadingIndicator from '../utils/LoadingIndicator';
 import MovieList from './MovieList';
 import MovieItem from './MovieItem';

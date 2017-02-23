@@ -1,7 +1,6 @@
 import React from 'react';
+import SearchResultList from '../search/results/SearchResultList';
 import LoadingIndicator from './utils/LoadingIndicator';
-import SearchResultList from '../api/results/SearchResultList';
-import Searcher from '../api/searchers/Searcher';
 import Container from './container/Container';
 import SearchBox from './searchbox/SearchBox';
 import MovieList from './movielist/MovieList';
@@ -20,7 +19,7 @@ export default class App extends React.Component {
 		return (
 			<Container>
 				{this.state.isLoading && <LoadingIndicator />}
-				<SearchBox onChange={this.props.actions.searchForMovie}/>
+				<SearchBox onChange={this.props.searchForMovies}/>
 				<MovieList searchResultList={this.state.searchResultList}/>
 			</Container>
 		);
@@ -29,6 +28,5 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
-	actions: React.PropTypes.object.isRequired,
-	searcher: React.PropTypes.instanceOf(Searcher).isRequired,
+	searchForMovies: React.PropTypes.func.isRequired
 };

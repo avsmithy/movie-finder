@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchResultList from '../../api/results/SearchResultList';
+import SearchResultList from '../../search/results/SearchResultList';
 import MovieItem from './MovieItem';
 import './MovieList.css';
 

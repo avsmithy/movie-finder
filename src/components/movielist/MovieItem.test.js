@@ -1,6 +1,6 @@
 import 'jest';
 import React from 'react';
-import SearchResult from '../../api/results/SearchResult';
+import SearchResult from '../../search/results/SearchResult';
 import MovieItem from './MovieItem';
 import {shallow, mount} from 'enzyme';
 
