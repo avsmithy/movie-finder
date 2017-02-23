@@ -14,27 +14,13 @@ export default class App extends React.Component {
 			isLoading:        false,
 			searchResultList: new SearchResultList(),
 		};
-
-		this.searchAndUpdate = this.searchAndUpdate.bind(this);
-	}
-
-	searchAndUpdate(searchTerm) {
-		this.setState({
-			isLoading: true
-		});
-		this.props.searcher.search(searchTerm).then((searchResultList) => {
-			this.setState({
-				isLoading: false,
-				searchResultList
-			});
-		});
 	}
 
 	render() {
 		return (
 			<Container>
 				{this.state.isLoading && <LoadingIndicator />}
-				<SearchBox onChange={this.searchAndUpdate}/>
+				<SearchBox onChange={this.props.actions.searchForMovie}/>
 				<MovieList searchResultList={this.state.searchResultList}/>
 			</Container>
 		);
@@ -43,5 +29,6 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
+	actions: React.PropTypes.object.isRequired,
 	searcher: React.PropTypes.instanceOf(Searcher).isRequired,
 };

@@ -18,17 +18,11 @@ it('input is updated when text entered', () => {
 	expect(input.props().value).toEqual('a');
 });
 
-it('calls onChange prop when text changed with debouncing', () => {
-	jest.useFakeTimers();
+it('calls onChange prop when text changed', () => {
 	const onChangeStub = jest.fn();
 	const wrapper = mount(<SearchBox onChange={onChangeStub}/>);
 	expect(onChangeStub).not.toBeCalled();
 
-	wrapper.find('input').simulate('change', {target: {value: 'ab'}});
-	jest.runTimersToTime(50);
-	expect(onChangeStub).not.toBeCalled();
-
 	wrapper.find('input').simulate('change', {target: {value: 'abc'}});
-	jest.runAllTimers();
 	expect(onChangeStub).toBeCalledWith('abc');
 });

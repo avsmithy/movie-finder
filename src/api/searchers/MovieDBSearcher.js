@@ -55,10 +55,10 @@ export default class MovieDBSearcher extends Searcher {
 				}
 			};
 
-			// For the sake of demonstration...
+			// For demonstration purposes
 			setTimeout(() => {
 				xhr.send();
-			}, 1000);
+			}, 500);
 		});
 	}
 
