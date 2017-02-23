@@ -5,6 +5,9 @@ import App from './components/App';
 
 export default class Main {
 
+	/**
+	 * @param {Searcher} searcher
+	 */
 	constructor(searcher) {
 		this.searcher = searcher;
 

@@ -5,26 +5,11 @@ import SearchResultList from '../results/SearchResultList';
 const apiURI = 'https://api.themoviedb.org/3/search/movie';
 const imagePrefix = 'https://image.tmdb.org/t/p/w300';
 
-function getQueryParams(apiKey, searchTerm) {
-	return `?api_key=${apiKey}&query=${searchTerm}`;
-}
-
-function parseMovies(response) {
-	const searchResults = response.results.map((result) => {
-		const releaseDate = new Date(result['release_date']);
-		const pictureURI = imagePrefix + result['poster_path'];
-		return new SearchResult(
-			result['title'],
-			result['overview'],
-			releaseDate,
-			pictureURI,
-			'TheMovieDB',
-			'/img/sources/themoviedb.png'
-		);
-	});
-	return new SearchResultList(searchResults);
-}
-
+/**
+ * TheMovieDB implementation of Searcher.
+ * @param {string} API key
+ * @implements {Searcher}
+ */
 export default class MovieDBSearcher extends Searcher {
 
 	constructor(apiKey) {
@@ -62,4 +47,24 @@ export default class MovieDBSearcher extends Searcher {
 		});
 	}
 
+}
+
+function getQueryParams(apiKey, searchTerm) {
+	return `?api_key=${apiKey}&query=${searchTerm}`;
+}
+
+function parseMovies(response) {
+	const searchResults = response.results.map((result) => {
+		const releaseDate = new Date(result['release_date']);
+		const pictureURI = imagePrefix + result['poster_path'];
+		return new SearchResult(
+			result['title'],
+			result['overview'],
+			releaseDate,
+			pictureURI,
+			'TheMovieDB',
+			'/img/sources/themoviedb.png'
+		);
+	});
+	return new SearchResultList(searchResults);
 }

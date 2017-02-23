@@ -1,8 +1,10 @@
 /* eslint-disable */
 import SearchResultList from '../results/SearchResultList';
 
-
-// Interface for Searchers
+/**
+ * Searcher interface.
+ * @interface
+ */
 export default class Searcher {
 
 	search(searchTerm) {
